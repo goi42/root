@@ -418,7 +418,7 @@ def _RDataFrameAsNumpy(df, columns=None, exclude=None):
     result_ptrs = {}
     for column in columns:
         column_type = df_rnode.GetColumnType(column)
-        result_ptrs[column] = _root.ROOT.Internal.RDF.RDataFrameTake(column_type)(df_rnode, column)
+        result_ptrs[column] = _root.ROOT.Internal.RDF.RDataFrameTake[column_type](df_rnode, column)
 
     # Convert the C++ vectors to numpy arrays
     py_arrays = {}
